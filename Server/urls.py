@@ -1,10 +1,9 @@
 # urls.py
 
-from django.contrib.auth import views as auth_views
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    # ... other URL patterns ...
-    path('login/', auth_views.LoginView.as_view(), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('register/', your_register_view, name='register'),  # Implement your registration view
+    path('books/', views.BookList.as_view(), name='book-list'),
+    path('books/<int:pk>/', views.BookDetail.as_view(), name='book-detail'),
 ]
